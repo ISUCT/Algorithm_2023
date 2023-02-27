@@ -9,4 +9,5 @@ import (
 func main() {
 	fmt.Println("Hello world")
 	module1.Summ()
+	module1.BubbleSort()
 }
