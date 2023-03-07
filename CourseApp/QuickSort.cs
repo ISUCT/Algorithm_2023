@@ -7,8 +7,7 @@ namespace CourseApp
 {
     public class QuickSort
     {
-        private int[] numbers = { 4, -1, 3421, 1234, -32, 12 };
-
+        // private int[] numbers = { 4, -1, 3421, 1234, -32, 12 };
         public static int FindPivot(int[] numbers, int minIndex, int maxIndex) // поиск опроного члена
         {
             int pivot = minIndex - 1;
@@ -32,7 +31,7 @@ namespace CourseApp
             return pivot;
         }
 
-        public int[] Sort(int[] nmbers, int minINdex, int maxIndex)
+        public int[] Sort(int[] numbers, int minINdex, int maxIndex)
         {
             if (minINdex >= maxIndex)
             {
