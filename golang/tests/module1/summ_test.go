@@ -13,8 +13,14 @@ import (
 func TestSumm(t *testing.T) {
 	assert := assert.New(t)
 
-	defer func(v *os.File) { os.Stdin = v }(os.Stdin)
-	defer func(v *os.File) { os.Stdout = v }(os.Stdout)
+	// А зачем менять значение os.Stdin на то же самое?
+	// Переменная os.Stdin после правок ниже меняется и она не константа
+	// Поправила так, чтобы меняло на старый os.Stdin и os.Stdout
+
+	oldStdin := *os.Stdin
+	oldStdout := *os.Stdout
+	defer func(v *os.File) { os.Stdin = v }(&oldStdin)
+	defer func(v *os.File) { os.Stdout = v }(&oldStdout)
 	t.Run("Case: 10 12", func(t *testing.T) {
 		r, w := helpers.Replacer("10 12\n", t)
 		os.Stdin = r
