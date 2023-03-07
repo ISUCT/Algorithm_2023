@@ -7,18 +7,13 @@ namespace CourseApp
     {
         public static void Main(string[] args)
         {
-            // BubbleSort.BubbleSortMethod();
-            Console.WriteLine(Plus(10, 12));
-            int a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(a.GetType());
-        }
-
-    public static int Plus(int a, int b)
-        {
-            /*int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());*/
-
-            return a + b;
+            int[] numbers = { 1, 2, 3, 4, -213, 12, -1, 5, 12 };
+            var sort = new QuickSort();
+            sort.Sort(numbers, 0, numbers.Length - 1);
+            foreach (int i in numbers)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }

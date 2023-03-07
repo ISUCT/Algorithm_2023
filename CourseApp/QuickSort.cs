@@ -31,7 +31,7 @@ namespace CourseApp
             return pivot;
         }
 
-        public int[] Sort(int[] numbers, int minINdex, int maxIndex)
+        public int[] Sort(int[] numbers, int minINdex, int maxIndex) // сама сортировка
         {
             if (minINdex >= maxIndex)
             {
@@ -41,9 +41,9 @@ namespace CourseApp
             int pivot = FindPivot(numbers, minINdex, maxIndex);
 
             Sort(numbers, minINdex, pivot - 1);
-            Sort(nmbers, pivot + 1, maxIndex);
+            Sort(numbers, pivot + 1, maxIndex);
 
             return numbers;
-        } // сама сортировка
+        }
     }
 }
