@@ -1,4 +1,4 @@
-package main
+package module2
 
 import (
 	"bufio"
@@ -6,16 +6,9 @@ import (
 	"os"
 	"strconv"
 	"strings"
-
-	"isuct.ru/informatics2022/internal/module1"
-	"isuct.ru/informatics2022/internal/module2"
 )
 
-func main() {
-	fmt.Println("Hello world")
-	module1.Summ()
-	module2.BubbleSort()
-	module2.PairSort()
+func BubbleSort() {
 	var n int
 	fmt.Scanln(&n)
 	reader := bufio.NewReader(os.Stdin)
@@ -33,13 +26,19 @@ func main() {
 			panic(err)
 		}
 	}
-	arr = module2.MergeSort(arr, 0, n)
-	for i := 0; i < n; i++ {
-		fmt.Print(arr[i], " ")
+	num_swaps := 0
+	for i := 0; i <= n-1; i++ {
+		for j := 0; j < n-1-i; j++ {
+			if arr[j] > arr[j+1] {
+				tmp := arr[j+1]
+				arr[j+1] = arr[j]
+				arr[j] = tmp
+				num_swaps += 1
+				fmt.Println(strings.Trim(fmt.Sprint(arr), "[]"))
+			}
+		}
 	}
-
-	module2.DifferentCount()
-	module2.InversionCount()
-	module2.Stock()
-
+	if num_swaps == 0 {
+		fmt.Println("0")
+	}
 }
