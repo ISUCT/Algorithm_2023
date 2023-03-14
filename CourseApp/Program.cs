@@ -5,14 +5,20 @@ namespace CourseApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            int[] numbers = { 1, 4, 7, 22, 5 };
-            var mergeSort = new MergeSort();
-            mergeSort.Sort(numbers);
-            foreach (int i in numbers)
+            var massLen = Convert.ToInt32(Console.ReadLine());
+            var mass = Console.ReadLine().Split(" ");
+            var list = new int[massLen];
+            for ( int i = 0; i < massLen; i++)
             {
-                Console.WriteLine(i);
+                list[i] = Convert.ToInt32(mass[i]);
+            }
+
+            MergesortTest.MergeSort(list);
+            foreach ( int i in MergesortTest.MergeSort(list))
+            {
+                Console.Write(i + " ");
             }
         }
     }
