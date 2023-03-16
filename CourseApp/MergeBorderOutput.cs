@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CourseApp
 {
-    public class MergesortTest
+    public class MergeBorderOutput
     {
-        public static int[] Merge(int[] arr1, int[] arr2)
+        public static int[] BMerge(int[] arr1, int[] arr2)
         {
             int i = 0, j = 0, k = 0;
             var resultArray = new int[arr1.Length + arr2.Length];
@@ -29,7 +30,7 @@ namespace CourseApp
             return resultArray;
         }
 
-        public static int[] MergeSort(int[] resultArray)
+        public static int[] BMergeSort(int[] resultArray)
         {
             if (resultArray.Length == 1)
             {
@@ -49,9 +50,11 @@ namespace CourseApp
                 rigth[i] = resultArray[i + mid];
             }
 
-            left = MergeSort(left);
-            rigth = MergeSort(rigth);
-            return Merge(left, rigth);
+            left = BMergeSort(left);
+            rigth = BMergeSort(rigth);
+            var res = BMerge(left, rigth);
+
+            return BMerge(left, rigth);
         }
     }
 }

@@ -7,7 +7,13 @@ namespace CourseApp
     {
         public static void Main()
         {
-            var massLen = Convert.ToInt32(Console.ReadLine());
+            var res = QuickSort.Sort(new int[] { 4, -1, 3421, 1234, -32, 12 }, 0, 5);
+            foreach (int i in res)
+            {
+                Console.WriteLine(i);
+            }
+
+            /*var massLen = Convert.ToInt32(Console.ReadLine());
             var mass = Console.ReadLine().Split(" ");
             var list = new int[massLen];
             for ( int i = 0; i < massLen; i++)
@@ -15,11 +21,11 @@ namespace CourseApp
                 list[i] = Convert.ToInt32(mass[i]);
             }
 
-            MergesortTest.MergeSort(list);
-            foreach ( int i in MergesortTest.MergeSort(list))
+            MergeBorderOutput.BMergeSort(list);
+            foreach ( int i in MergeBorderOutput.BMergeSort(list))
             {
                 Console.Write(i + " ");
-            }
+            }*/
         }
     }
 }

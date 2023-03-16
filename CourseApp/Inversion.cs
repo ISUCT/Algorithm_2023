@@ -51,7 +51,7 @@ namespace CourseApp
 
             left = MergeSort(left);
             rigth = MergeSort(rigth);
-            return Merge(left, rigth); 
+            return Merge(left, rigth);
         }
     }
 }
