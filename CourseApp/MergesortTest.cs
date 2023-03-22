@@ -26,6 +26,11 @@ namespace CourseApp
                 k++;
             }
 
+            foreach (int elem in resultArray)
+            {
+                Console.WriteLine(elem);
+            }
+
             return resultArray;
         }
 

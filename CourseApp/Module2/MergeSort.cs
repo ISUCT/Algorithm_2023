@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CourseApp
 {
-    internal class Inversion
+    public class MergeSort
     {
         public static int[] Merge(int[] arr1, int[] arr2)
         {
@@ -29,29 +27,36 @@ namespace CourseApp
             return resultArray;
         }
 
-        public static int[] MergeSort(int[] resultArray)
+        public static int[] Sort(int[] array)
         {
-            if (resultArray.Length == 1)
+            if (array.Length == 1)
             {
-                return resultArray;
+                return array;
             }
 
-            var mid = resultArray.Length / 2;
+            var mid = array.Length / 2;
             var left = new int[mid];
-            for (int i = 0; i < mid; i++)
+            var right = new int[array.Length - mid];
+
+            Array.Copy(array, 0, left, 0, left.Length);
+            Array.Copy(array, left.Length, right, 0, right.Length);
+
+            left = Sort(left);
+            right = Sort(right);
+
+            return Merge(left, right);
+        }
+
+        public static int[] ParseConsole()
+        {
+            var str = Console.ReadLine().Split(" ");
+            var mass = new int[str.Length];
+            for (int i = 0; i < mass.Length; i++)
             {
-                left[i] = resultArray[i];
+                mass[i] = Convert.ToInt32(str[i]);
             }
 
-            var rigth = new int[resultArray.Length - mid];
-            for (int i = 0; i < rigth.Length; i++)
-            {
-                rigth[i] = resultArray[i + mid];
-            }
-
-            left = MergeSort(left);
-            rigth = MergeSort(rigth);
-            return Merge(left, rigth);
+            return mass;
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CourseApp
+namespace CourseApp.Module2
 {
     public class BubleSort
     {

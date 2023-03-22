@@ -7,11 +7,8 @@ namespace CourseApp
     {
         public static void Main()
         {
-            var res = QuickSort.Sort(new int[] { 4, -1, 3421, 1234, -32, 12 }, 0, 5);
-            foreach (int i in res)
-            {
-                Console.WriteLine(i);
-            }
+            var a = Inversion.Parse();
+            Inversion.Sort(a);
 
             /*var massLen = Convert.ToInt32(Console.ReadLine());
             var mass = Console.ReadLine().Split(" ");
