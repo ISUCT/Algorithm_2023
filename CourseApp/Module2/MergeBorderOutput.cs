@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CourseApp
+namespace CourseApp.Module2
 {
     public class MergeBorderOutput
     {

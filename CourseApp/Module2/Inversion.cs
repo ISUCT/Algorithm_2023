@@ -1,66 +1,82 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CourseApp.Module2
 {
-    internal class Inversion
+    public class Inversion
     {
-        public static int[] Merge(int[] arr1, int[] arr2)
+        private static long inversionCount = 0;
+
+        public static void Main1()
         {
-            int i = 0, j = 0, k = 0;
-            var resultArray = new int[arr1.Length + arr2.Length];
-            while (k < resultArray.Length)
+            int v = int.Parse(Console.ReadLine());
+            if (v > 1)
             {
-                if ((j == arr2.Length) || (i < arr1.Length && arr1[i] <= arr2[j]))
+                string temp = Console.ReadLine();
+                string[] values = temp.Split(' ');
+                int[] array = new int[v];
+                for (int i = 0; i < values.Length; i++)
                 {
-                    resultArray[k] = arr1[i];
+                    array[i] = int.Parse(values[i]);
+                }
+
+                int[] result = Sort(array, 0, v);
+                Console.WriteLine(inversionCount);
+            }
+            else
+            {
+                Console.WriteLine(0);
+            }
+        }
+
+        public static int[] Sort(int[] array, int firstInd, int lastInd)
+        {
+            if (lastInd - firstInd == 1)
+            {
+                int[] res = new int[1];
+                res[0] = array[firstInd];
+                return res;
+            }
+
+            int w = (firstInd + lastInd) / 2;
+
+            int[] left = Sort(array, firstInd, w);
+            int[] right = Sort(array, w, lastInd);
+
+            return Merge(left, right);
+        }
+
+        public static int[] Merge(int[] left, int[] right)
+        {
+            int i = 0;
+            int j = 0;
+            int[] result = new int[left.Length + right.Length];
+
+            for (int n = 0; n < result.Length; n++)
+            {
+                if (i == left.Length)
+                {
+                    result[n] = right[j];
+                    j++;
+                }
+                else if (j == right.Length)
+                {
+                    result[n] = left[i];
+                    i++;
+                }
+                else if (left[i] <= right[j])
+                {
+                    result[n] = left[i];
                     i++;
                 }
                 else
                 {
-                    resultArray[k] = arr2[j];
+                    result[n] = right[j];
                     j++;
+                    inversionCount += left.Length - i;
                 }
-
-                k++;
             }
 
-            return resultArray;
-        }
-
-        public static int[] Sort(int[] array)
-        {
-            var i = 0;
-            if (array.Length == 1)
-            {
-                return array;
-            }
-
-            var mid = array.Length / 2;
-            var left = new int[mid];
-            var right = new int[array.Length - mid];
-
-            Array.Copy(array, 0, left, 0, left.Length);
-            Array.Copy(array, left.Length, right, 0, right.Length);
-
-            left = Sort(left);
-            right = Sort(right);
-            Console.WriteLine(i);
-            return Merge(left, right);
-        }
-
-        public static int[] Parse()
-        {
-            var massLen = Convert.ToInt16(Console.ReadLine());
-            var str = Console.ReadLine().Split(" ");
-            var mass = new int[massLen];
-            for (int i = 0; i < mass.Length; i++)
-            {
-                mass[i] = Convert.ToInt32(str[i]);
-            }
-
-            return mass;
+            return result;
         }
     }
 }
