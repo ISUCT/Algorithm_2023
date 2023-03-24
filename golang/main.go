@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	module2.SolutionBubbleSort()
+	module2.SolutionInsertionSort()
 }
