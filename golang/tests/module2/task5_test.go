@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	module2 "isuct.ru/informatics2022/internal/module2"
+	"isuct.ru/informatics2022/internal/module2"
 	"isuct.ru/informatics2022/tests/helpers"
 )
 
