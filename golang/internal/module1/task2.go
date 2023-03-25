@@ -1,8 +1,8 @@
-package main
+package module1
 
 import "fmt"
 
-func main() {
+func Task2() {
 	var name string
 	fmt.Scanf("%s", &name)
 
