@@ -40,8 +40,8 @@ func printListOfItems(listOfItems [][]int, length int) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		writer.Flush()
 	}
+	writer.Flush()
 }
 
 func SolutionInsertionSort() {
