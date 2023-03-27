@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CourseApp.Module3
@@ -9,14 +10,13 @@ namespace CourseApp.Module3
         {
             var a = Console.ReadLine();
             var b = Console.ReadLine();
-            string result = null;
+            List<string> result = new List<string>();
             for (int i = 0; i <= a.Length - b.Length + 1; i += b.Length)
             {
-                result += a.IndexOf(b, i).ToString();
-                result += " ";
+                result.Add(a.IndexOf(b, i).ToString());
             }
 
-            Console.WriteLine(result.Split(" ").Aggregate((d, c) => d + " " + c) + "\r");
+            Console.WriteLine(result.Aggregate((d, c) => d + " " + c) + "\r");
         }
     }
 }
