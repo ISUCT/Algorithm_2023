@@ -39,6 +39,7 @@
             Console.SetIn(stringReader);
 
             // act
+            BubleSort.Sort();
 
             // assert
             var output = stringWriter.ToString().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);

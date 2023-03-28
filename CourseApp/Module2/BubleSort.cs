@@ -6,7 +6,7 @@ namespace CourseApp.Module2
 {
     public class BubleSort
     {
-        public static void SortProc()
+        public static void Sort()
         {
             var k = 0;
             var massLen = Convert.ToInt32(Console.ReadLine());

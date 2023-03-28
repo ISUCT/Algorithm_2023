@@ -11,12 +11,12 @@ namespace CourseApp.Module3
             var a = Console.ReadLine();
             var b = Console.ReadLine();
             List<string> result = new List<string>();
-            for (int i = 0; i <= a.Length - b.Length + 1; i += b.Length)
+            for (int i = 0; ; i += b.Length)
             {
                 result.Add(a.IndexOf(b, i).ToString());
             }
 
-            Console.WriteLine(result.Aggregate((d, c) => d + " " + c) + "\r");
+            Console.WriteLine(result.Aggregate((d, c) => d + " " + c) + "\r\n");
         }
     }
 }
