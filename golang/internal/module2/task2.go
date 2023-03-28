@@ -4,14 +4,13 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
 	"strings"
 )
 
 func Task2() {
 	var n int
 	fmt.Scanln(&n)
-	var arr [][]int
+	var arr [][]string
 
 	for i := 0; i < n; i++ {
 		reader := bufio.NewReader(os.Stdin)
@@ -23,16 +22,17 @@ func Task2() {
 		line = strings.TrimSuffix(line, "\r")
 		input := strings.Split(line, " ")
 
-		intArr := make([]int, len(input))
-		for i, str := range input {
-			num, err := strconv.Atoi(str)
-			if err != nil {
-				panic(err)
-			}
-			intArr[i] = num
-		}
-
-		arr = append(arr, intArr)
+		// Numeric Conversions
+		// intArr := make([]int, len(input))
+		// for i, str := range input {
+		// 	num, err := strconv.Atoi(str)
+		// 	if err != nil {
+		// 		panic(err)
+		// 	}
+		// 	intArr[i] = num
+		// }
+		// arr = append(arr, intArr)
+		arr = append(arr, input)
 
 		j := i - 1
 		x := arr[i]

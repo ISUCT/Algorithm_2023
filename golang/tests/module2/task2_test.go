@@ -19,7 +19,7 @@ func TestTask2(t *testing.T) {
 		r, w := helpers.Replacer(`3
 101 80
 305 90
-200 14		
+200 14
 `, t)
 		os.Stdin = r
 		os.Stdout = w
@@ -29,7 +29,7 @@ func TestTask2(t *testing.T) {
 		out, _ := io.ReadAll(r)
 		assert.Equal(`305 90
 101 80
-200 14		
+200 14
 `, string(out))
 	})
 	t.Run("Case: 3 20 80", func(t *testing.T) {
@@ -46,7 +46,7 @@ func TestTask2(t *testing.T) {
 		out, _ := io.ReadAll(r)
 		assert.Equal(`25 90
 30 90
-20 80		
+20 80
 `, string(out))
 	})
 }
