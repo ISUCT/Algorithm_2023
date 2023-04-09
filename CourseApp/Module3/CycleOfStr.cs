@@ -4,49 +4,50 @@ namespace CourseApp.Module3
 {
     public class CycleOfStr
     {
-        public static int[] Kmp(string str)
+        public static int[] Kmp(string s)
         {
-            int[] p = new int[str.Length];
-            for (var i = 1; i < str.Length; i++)
+            int n = s.Length;
+            int[] pi = new int[n];
+            for (int i = 1; i < n; i++)
             {
-                int j = p[i - 1];
-                while (j > 0 && str[i] != str[j])
+                int j = pi[i - 1];
+                while (j > 0 && s[i] != s[j])
                 {
-                    j = p[j - 1];
+                    j = pi[j - 1];
                 }
 
-                if (str[i] == str[j])
+                if (s[i] == s[j])
                 {
                     j++;
                 }
 
-                p[i] = j;
+                pi[i] = j;
             }
 
-            return p;
+            return pi;
         }
 
         public static int Find(string s, string t)
         {
             int n = s.Length;
-            string r = t + "#" + s + s;
-            int[] p = Kmp(r);
-            if (p[n + 1 + t.Length - 1] == t.Length)
-            {
-                return n - t.Length;
-            }
-            else
+            int m = t.Length;
+            if (n != m)
             {
                 return -1;
             }
-        }
 
-        public void Ass()
-        {
-            var str = Console.ReadLine();
-            var subStr = Console.ReadLine();
-            var res = Find(str, subStr);
-            Console.WriteLine(res);
+            s = s + '#' + s;
+            int[] pi = Kmp(s);
+            for (int i = 0; i < m; i++)
+            {
+                int j = pi[n + i + 1];
+                if (t[i] != s[j])
+                {
+                    return -1;
+                }
+            }
+
+            return n - pi[n * 2];
         }
     }
 }
