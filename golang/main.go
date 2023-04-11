@@ -1,9 +1,10 @@
 package main
 
 import (
-	module2 "isuct.ru/informatics2022/internal/module2"
+	module3 "isuct.ru/informatics2022/internal/module3"
+	// module2 "isuct.ru/informatics2022/internal/module2"
 )
 
 func main() {
-	module2.Task3()
+	module3.Task1()
 }

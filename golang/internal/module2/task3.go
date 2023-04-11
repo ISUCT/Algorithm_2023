@@ -50,13 +50,9 @@ func Task3() {
 	line = strings.TrimSuffix(line, "\r")
 	arr := strings.Split(line, " ")
 
-	intArr := make([]int, len(arr))
-	for i, str := range arr {
-		num, err := strconv.Atoi(str)
-		if err != nil {
-			panic(err)
-		}
-		intArr[i] = num
+	intArr := make([]int, n)
+	for i := 0; i < n; i++ {
+		intArr[i], _ = strconv.Atoi(arr[i])
 	}
 
 	sortedArr := mergeSort(intArr, 0)
