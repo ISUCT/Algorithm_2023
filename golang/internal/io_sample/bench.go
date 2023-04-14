@@ -15,29 +15,34 @@ func WriteFile(size int64, filename string) error {
 		return err
 	}
 	defer file.Close()
-	writer := bufio.NewWriterSize(file, int(size))
+	writer := bufio.NewWriterSize(file, 5)
 	defer writer.Flush()
 	for i := int64(0); i < size; i++ {
 		str := fmt.Sprintf("%d ", i)
-		if len(str) >= writer.Available() {
-			break
-		}
-		if _, err := fmt.Fprintf(writer, "%d ", i); err != nil {
+		// if len(str) >= writer.Available() {
+		// 	break
+		// }
+		if _, err := fmt.Fprint(writer, str); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func ReadFile(filename string) error {
+func ReadFile(filename string) (io.ReadCloser, error) {
 	file, err := os.Open(filename)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	reader := bufio.NewReader(file)
+	return file, nil
+}
+
+func MyFileReader(reader io.ReadCloser) error {
+	defer reader.Close()
+	rdr := bufio.NewReader(reader)
 	var item int
 	for {
-		_, err := fmt.Fscanf(reader, "%d ", &item)
+		_, err := fmt.Fscanf(rdr, "%d ", &item)
 		if err != nil {
 			if err == io.EOF {
 				return nil
