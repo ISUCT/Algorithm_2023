@@ -8,7 +8,7 @@ namespace CourseApp
     {
         public static void Main()
         {
-            Shiftstring.Zain();
+            CircleStr.Pain();
         }
     }
 }
