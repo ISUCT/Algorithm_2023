@@ -4,7 +4,7 @@ namespace CourseApp.Module2
 {
     public class MergeBorderOutput
     {
-        public static void Gain()
+        public static void Gain() // Main() method
         {
             MergeSortMethod();
         }

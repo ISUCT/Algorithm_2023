@@ -8,10 +8,7 @@ namespace CourseApp
     {
         public static void Main()
         {
-            var str = Console.ReadLine();
-            var subStr = Console.ReadLine();
-            var res = CycleOfStr.Find(str, subStr);
-            Console.WriteLine(res);
+            Shiftstring.Zain();
         }
     }
 }

@@ -1,53 +1,48 @@
 ﻿using System;
+using System.Globalization;
 
 namespace CourseApp.Module3
 {
     public class CycleOfStr
     {
-        public static int[] Kmp(string s)
+        public static int GetHash(string s, int n)
         {
-            int n = s.Length;
-            int[] pi = new int[n];
-            for (int i = 1; i < n; i++)
+            int res = 0, p = 2803, x = 31;
+            for (int i = 0; i < n; i++)
             {
-                int j = pi[i - 1];
-                while (j > 0 && s[i] != s[j])
-                {
-                    j = pi[j - 1];
-                }
-
-                if (s[i] == s[j])
-                {
-                    j++;
-                }
-
-                pi[i] = j;
+                res = ((res * x) + s[i]) % p;
             }
 
-            return pi;
+            return res;
         }
 
-        public static int Find(string s, string t)
+        public static int RabinKarp(string s, string t)
         {
-            int n = s.Length;
-            int m = t.Length;
-            if (n != m)
-            {
-                return -1;
-            }
+            int ht = GetHash(t, t.Length);
+            int hs = GetHash(s, s.Length);
+            int p = 2803, x = 27;
 
-            s = s + '#' + s;
-            int[] pi = Kmp(s);
-            for (int i = 0; i < m; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                int j = pi[n + i + 1];
-                if (t[i] != s[j])
+                if (ht == hs)
                 {
-                    return -1;
+                    return i;
                 }
+
+                ht = ((ht * x) - (t[i] * ht) + t[i]) % p;
+                ht = (ht + p) % p;
             }
 
-            return n - pi[n * 2];
+            return -1;
+        }
+
+        public static void Pain() // Main method
+        {
+            var s = Console.ReadLine();
+            var t = Console.ReadLine();
+
+            var res = RabinKarp(s, t);
+            Console.WriteLine(res);
         }
     }
 }
