@@ -1,4 +1,4 @@
-package module1_test
+package module2_test
 
 import (
 	"io"
