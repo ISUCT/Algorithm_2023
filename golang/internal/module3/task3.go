@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func Z_function(s string) []int {
@@ -17,13 +16,6 @@ func Z_function(s string) []int {
 		}
 	}
 	return z
-}
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
 }
 
 func Z_function_enchanced(s string) []int {
@@ -48,13 +40,7 @@ func Z_function_enchanced(s string) []int {
 	return z
 }
 
-func removeNewline(str string) string {
-	str = strings.TrimSuffix(str, "\n")
-	str = strings.TrimSuffix(str, "\r")
-	return str
-}
-
-func Task2Solution() {
+func Task3Solution() {
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 	input = removeNewline(input)
