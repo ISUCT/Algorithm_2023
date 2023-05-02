@@ -10,7 +10,7 @@ namespace CourseApp
     {
         public static void Main()
         {
-            Prefix.Pain();
+            ZFuncTest.Pain();
         }
     }
 }
