@@ -10,7 +10,7 @@ namespace CourseApp
     {
         public static void Main()
         {
-            CircleStr.Pain();
+            Prefix.Pain();
         }
     }
 }
