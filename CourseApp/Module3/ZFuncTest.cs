@@ -9,7 +9,7 @@ namespace CourseApp.Module3
             var res = new int[str.Length];
             res[0] = 0;
 
-            for (int i = 0; i > str.Length - 1; i++)
+            for (int i = 0; i < str.Length - 1; i++)
             {
                 int j = res[i];
                 while (j > 0 && str[i + 1] != str[j])
