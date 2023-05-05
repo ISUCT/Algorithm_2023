@@ -7,15 +7,16 @@ namespace CourseApp
     {
         public static void Psp()
         {
-            var s = Console.ReadLine();
-            Stack<char> stack = new Stack<char>();
-            foreach (char c in s)
+            var str = Console.ReadLine();
+            var stack = new Stack<char>();
+
+            foreach (char symbol in str)
             {
-                if (c == '(')
+                if (symbol == '(')
                 {
-                    stack.Push(c);
+                    stack.Push(symbol);
                 }
-                else if (c == ')')
+                else if (symbol == ')')
                 {
                     if (stack.Count > 0 && stack.Peek() == '(')
                     {
@@ -23,7 +24,7 @@ namespace CourseApp
                     }
                     else
                     {
-                        stack.Push(c);
+                        stack.Push(symbol);
                     }
                 }
             }
