@@ -5,8 +5,9 @@ namespace CourseApp.Module4
 {
     public class BalsCount
     {
-        public static int Count(string nums)
+        public static void Count()
         {
+            var nums = Console.ReadLine();
             var myStack = new Stack<int>();
             var resStack = new Stack<int>();
             var count = 1;
@@ -19,10 +20,10 @@ namespace CourseApp.Module4
 
             var length = myStack.Count;
 
-            while (myStack.Count > 0 || res != length / 3)
+            while (myStack.Count > 0)
             {
-                resStack.Push(myStack.Pop());
-                if (resStack.Pop() == myStack.Peek())
+                resStack.Push(myStack.Peek());
+                if (resStack.Pop() == myStack.Pop())
                 {
                     count++;
                     if (count == 3)
@@ -38,7 +39,7 @@ namespace CourseApp.Module4
                 }
             }
 
-            return res * 3;
+            Console.WriteLine(res * 3);
         }
     }
 }
