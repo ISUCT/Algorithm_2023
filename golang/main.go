@@ -1,9 +1,9 @@
 package main
 
 import (
-	"isuct.ru/informatics2022/internal/module2"
+	"isuct.ru/informatics2022/internal/module4"
 )
 
 func main() {
-	module2.SolutionInsertionSort()
+	module4.Task3Solution()
 }
