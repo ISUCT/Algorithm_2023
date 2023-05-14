@@ -12,7 +12,7 @@ namespace CourseApp
     {
         public static void Main()
         {
-            PSP.Psp();
+           Sort.Pain();
         }
     }
 }
