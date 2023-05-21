@@ -1,49 +1,43 @@
 package module3
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
+
+func z_func(s string) []int {
+	n := len(s)
+	z := make([]int, n)
+	z[0] = n
+	l := 0
+	r := 0
+	for i := 1; i < n; i++ {
+		if i <= r {
+			a := r - i + 1
+			b := z[i-l]
+			if a < b {
+				z[i] = a
+			} else {
+				z[i] = b
+			}
+		}
+		for i+z[i] < n && s[z[i]] == s[z[i]+i] {
+			z[i]++
+		}
+		if i+z[i]-1 > r {
+			l = i
+			r = i + z[i] - 1
+		}
+	}
+	return z
+}
 
 func Task4() {
 	var s string
-	fmt.Scan(&s)
-
-	// Ищем все вхождения первого символа в строку
-	firstChar := rune(s[0])
-	indexes := make([]int, 0)
-	for i, c := range s {
-		if c == firstChar {
-			indexes = append(indexes, i)
+	fmt.Scanln(&s)
+	Z := z_func(s)
+	min := Z[0]
+	for i := 1; i < len(Z); i++ {
+		if Z[i] > 0 && Z[i] < min {
+			min = Z[i]
 		}
 	}
-
-	// Ищем периодические подстроки, начинающиеся с каждого вхождения
-	minLength := len(s)
-	for _, i := range indexes {
-		sub := s[i:]
-		index := strings.Index(sub[1:], sub[:1]) + 1
-		if index == 0 || index == len(sub)-1 {
-			continue
-		}
-		period := 1
-		for j := 1; j < len(sub); j++ {
-			if sub[j%index] != sub[j] {
-				period = j + 1
-				break
-			}
-		}
-		repetitions := len(sub) / period
-		if repetitions*period < len(s) && repetitions*period < minLength {
-			minLength = repetitions * period
-		}
-	}
-
-	// Если не нашли периодических подстрок, то строка состоит из повторений одной подстроки
-	if minLength == len(s) {
-		fmt.Println(len(s))
-		return
-	}
-
-	fmt.Println(minLength)
+	fmt.Println(min)
 }
