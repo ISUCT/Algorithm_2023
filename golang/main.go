@@ -1,12 +1,7 @@
 package main
 
-import (
-	"fmt"
-
-	"isuct.ru/informatics2022/internal/module1"
-)
+import "isuct.ru/informatics2022/internal/module5"
 
 func main() {
-	fmt.Println("Hello world")
-	module1.Summ()
+	module5.SolutionTask2()
 }

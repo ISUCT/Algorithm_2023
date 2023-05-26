@@ -1,0 +1,53 @@
+Initial array:
+0132
+**********
+Phase 1
+Bucket 0: empty
+Bucket 1: empty
+Bucket 2: 0132
+Bucket 3: empty
+Bucket 4: empty
+Bucket 5: empty
+Bucket 6: empty
+Bucket 7: empty
+Bucket 8: empty
+Bucket 9: empty
+**********
+Phase 2
+Bucket 0: empty
+Bucket 1: empty
+Bucket 2: empty
+Bucket 3: 0132
+Bucket 4: empty
+Bucket 5: empty
+Bucket 6: empty
+Bucket 7: empty
+Bucket 8: empty
+Bucket 9: empty
+**********
+Phase 3
+Bucket 0: empty
+Bucket 1: 0132
+Bucket 2: empty
+Bucket 3: empty
+Bucket 4: empty
+Bucket 5: empty
+Bucket 6: empty
+Bucket 7: empty
+Bucket 8: empty
+Bucket 9: empty
+**********
+Phase 4
+Bucket 0: 0132
+Bucket 1: empty
+Bucket 2: empty
+Bucket 3: empty
+Bucket 4: empty
+Bucket 5: empty
+Bucket 6: empty
+Bucket 7: empty
+Bucket 8: empty
+Bucket 9: empty
+**********
+Sorted array:
+0132
