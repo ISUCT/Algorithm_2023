@@ -1,7 +1,7 @@
 package main
 
-import "isuct.ru/informatics2022/internal/module4"
+import "isuct.ru/informatics2022/internal/module5"
 
 func main() {
-	module4.SolutionTask4()
+	module5.SolutionTask2()
 }
