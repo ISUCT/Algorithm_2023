@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	module5.Task3()
+	module5.Task1()
 }
